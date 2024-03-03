@@ -11,7 +11,7 @@ from database import generate_event, editcsv_event_occured
 def generate_response_gpt(prompt, important=False, blank=False):
 
 
-    api_key = "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"
+    api_key = ""
 
     client = OpenAI(api_key=api_key)
 
