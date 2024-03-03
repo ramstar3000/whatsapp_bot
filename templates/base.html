@@ -1,0 +1,103 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+
+        <link rel="stylesheet" href= "{{ url_for('static', filename='css/main.css') }}">
+        <h1 class="section-header" id="head">Create or view events</h1>
+
+
+    </head>
+
+    <section id="Info">
+
+  
+    
+    <div class="contact-wrapper">
+    
+    <!-- Left contact page --> 
+      
+      <form id="contact-form" class="form-horizontal" role="form" method="POST" action="/">
+         
+
+        <h3>Event Details</h3>
+        <div class="form-group">
+          <div class="col-sm-12">
+            <input type="text" class="form-control" id="EventID" placeholder="Optional: e.g. Cricket Training" name="EventID" value="">
+          </div>
+        </div>
+  
+        <div class="form-group">
+          <div class="col-sm-12">
+            <!-- We want a date next-->
+            <input type="date" class="form-control" id="EventDate" placeholder="Event Date" name="EventDate" value="" required>
+          </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-sm-12">
+              <!-- We want a time next-->
+              <input type="time" class="form-control" id="EventTime" placeholder="Event Time" name="EventTime" value="" required>
+            </div>
+          </div>
+  
+        <textarea class="form-control" rows="10" placeholder="Optional: Extra Information about event" name="Extra Info", id="Extra Info"></textarea>
+
+        <!-- Ask about repetations-->
+        <div class="form-group">
+          <div class="col-sm-12">
+            <input type="text" class="form-control" id="Repetitions" placeholder="e.g. Weekly/Monthly/Never" name="Repetitions" value="">
+          </div></div>
+        
+        <button class="btn btn-primary send-button" id="submit" type="submit" value="SEND" method="POST">
+          <div class="alt-send-button">
+            <i class="fa fa-paper-plane"></i><span class="send-text">SEND</span>
+          </div>
+        
+        </button>
+
+
+        
+      </form>
+            
+        <div class="direct-contact-container">
+            
+            <h3> Events </h3>
+            <hr>
+  
+          <ul class="contact-list">
+            <li class="list-item"><i class="fa fa-map-marker fa-2x"><span class="contact-text place">{{events[0][0]}} @ {{events[0][1]}} </span></i></li>
+            
+            {% if l > 1: %}
+            <li class="list-item"><i class="fa fa-map-marker fa-2x"><span class="contact-text place">{{events[1][0]}} @ {{events[1][1]}} </span></i></li>
+            {% endif %}
+
+            {% if l > 2: %} 
+            <li class="list-item"><i class="fa fa-map-marker fa-2x"><span class="contact-text place">{{events[2][0]}} @ {{events[2][1]}} </span></i></li>
+            {% endif %}
+
+
+
+
+
+            
+          </ul>
+  
+          <hr>
+
+        <!-- Return button to all events-->
+        <form action="/allevents">
+          <button class="btn btn-primary send-button" id="submit" type="submit" value="SEND" method="POST" style="width: 500px;"
+            <div class="alt-send-button">
+              <i class="fa fa-paper-plane"></i><span class="send-text">View all</span>
+            </div>
+          </button>
+    
+        </div>
+      
+    </div>
+    
+  </section>  
+    

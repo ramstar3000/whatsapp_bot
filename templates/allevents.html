@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+
+        <link rel="stylesheet" href= "{{ url_for('static', filename='css/main.css') }}">
+        <h1 class="section-header" id="head">View all events</h1>
+
+    </head>
+
+
+    <body style="display: block; text-align: center;">
+
+        {% for event in events %}
+
+        <div class="event-wrapper", id="wrap">
+            <h2>{{ event[0] }}</h2>
+            <p>@ {{ event[1] }}</p>
+            <p>Info Provided: {{ event[2] }}</p>
+            <p>Summary: {{ event[3] }}</p>
+            {% if event[4] != 0 %}
+            <p>Reminder Time: {{ event[4] }}</p>
+            {% endif %}
+
+
+        </div>
+
+        {% endfor %}
+
+    </body>
+
+    <!---Return button-->
+
+    <form action="/">
+
+        <button class="btn btn-primary send-button" id="submit" type="submit" value="SEND" method="POST">
+            <div class="alt-send-button">
+                <i class="fa fa-paper-plane"></i><span class="send-text">Return</span>
+            </div>
+        </button>
